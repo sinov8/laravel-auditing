@@ -415,6 +415,11 @@ trait Auditable
      */
     protected function resolveAttributeGetter($event)
     {
+
+        if(empty($event)) {
+            return;
+        }
+
         foreach ($this->getAuditEvents() as $key => $value) {
             $auditableEvent = is_int($key) ? $value : $key;
 
